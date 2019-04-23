@@ -2,10 +2,7 @@ package junit5.example.repository;
 
 import junit5.example.model.Message;
 import junit5.example.model.User;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Nested;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import java.util.Arrays;
 import java.util.Date;
@@ -38,6 +35,12 @@ class MessageRepositoryTest {
                 () -> assertEquals("message 02",messages.get(1).getMessage()),
                 () -> assertEquals("message 03",messages.get(2).getMessage())
         );
+    }
+
+    //this test case will repeat 3 times
+    @RepeatedTest(3)
+    public void repeatTest(){
+        System.out.println("repeat test");
     }
 
     //test cases of this class will run similar to test case of MessageRepositoryTest class
